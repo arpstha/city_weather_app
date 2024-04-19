@@ -18,7 +18,7 @@
 		  throw new Error('Failed to fetch weather data');
 		}
 		const data = await response.json();
-		weatherData.set(data); // Update the weatherData store with the fetched data
+		weatherData.set(data); 
 	  } catch (error) {
 		console.error(error);
 	  }
@@ -36,7 +36,7 @@
 	function clear(event){
 	  event.preventDefault();
 	  currentCity.set('');
-	  weatherData.set(null); // Clear the weatherData when clearing the city
+	  weatherData.set(null); 
 	}
   </script>
   
@@ -46,7 +46,7 @@
 	  <button on:click={handlesubmit}>Find Weather</button>
 	  <button on:click={clear}>Clear</button>
 	</form>
-	{#if $weatherData} <!-- Check if weatherData is available -->
+	{#if $weatherData} 
 	  <h1>The current weather in {$weatherData.name}:</h1>
 	  <Weather {weatherData} />
 	{:else}
