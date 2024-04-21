@@ -1,53 +1,35 @@
-<script>
-	import { writable } from 'svelte/store';
+<script type="module">
 	import Weather from "./Weather.svelte";
-	import { onMount } from 'svelte';
+	import { fetchWeather } from "../util/util"
+
+	let currentCity = '';
+	let weatherData = '';
+
+   $: fetchWeather('london')
+   .then((data)=> weatherData = data)
   
-	export const currentCity = writable('');
-	export const weatherData = writable(null);
-  
-	onMount(async () => {
-	  fetchWeather('london');
-	});
-  
-	async function fetchWeather(city) {
-	  try {
-		const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=db707a8803a4ca18f60ef2c268914634`);
-		
-		if (!response.ok) {
-		  throw new Error('Failed to fetch weather data');
-		}
-		const data = await response.json();
-		weatherData.set(data); 
-	  } catch (error) {
-		console.error(error);
-	  }
-	}
-  
-	function handlesubmit(event) {
+	function handleSubmit(event) {
 	  event.preventDefault();
-	  const inputValue = $currentCity;
-	  if (inputValue.trim() !== '') {
-		currentCity.set(inputValue);
-		fetchWeather($currentCity)
+	  if (currentCity.length !== 0) {
+		fetchWeather(currentCity)
+		.then((data)=> weatherData = data)
 	  }
 	}
-	
+  
 	function clear(event){
 	  event.preventDefault();
-	  currentCity.set('');
-	  weatherData.set(null); 
+	  currentCity = '';
 	}
   </script>
   
   <main>
-	<form>
-	  <input placeholder='Search weather by city' bind:value={$currentCity}/>
-	  <button on:click={handlesubmit}>Find Weather</button>
+	<form on:submit={handleSubmit}>
+	  <input placeholder='Search weather by city' bind:value={currentCity}/>
+	  <button type="submit">Find Weather</button>
 	  <button on:click={clear}>Clear</button>
 	</form>
-	{#if $weatherData} 
-	  <h1>The current weather in {$weatherData.name}:</h1>
+	{#if weatherData} 
+	  <h1>The current weather in {weatherData.name}:</h1>
 	  <Weather {weatherData} />
 	{:else}
 	  <p>No weather data available</p>
