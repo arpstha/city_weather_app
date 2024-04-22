@@ -17,9 +17,7 @@ app.add_middleware(
 async def get_weather(city_name: str):
    
     response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_KEY}")
-    if response.status_code == 200:
-        return response.json()
-    else:
-        raise HTTPException(status_code=response.status_code, detail="Failed to fetch weather data")
+    return response.json()
+    
 
 

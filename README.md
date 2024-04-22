@@ -11,6 +11,8 @@ This project is built using Svelte for the frontend, python FastAPI for the back
 ## MAIN FEATURES
 - View the current weather of the city of choice (default: London)
 - Change the city with search bar
+- Show error message if entered invalid city name
+- Show error if server is offline or server couldn't fetch weather data
 
 # Set-up instructions
 
@@ -48,7 +50,7 @@ Terminal should confirm server startup confirm:
 >INFO:     Application startup complete.</br>
 >INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)</br>
 
-Now you can launch the app in your browser with the code below into your terminal. Make sure the server is running on http://127.0.0.1 and port 8000 for successful connection between the Weather App and the server.
+Make sure the server is running on http://127.0.0.1 and port 8000 for successful connection between the Weather App and the server. Now you can launch the app with the code below into your terminal.
 
 ```
 npm run dev
