@@ -33,7 +33,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
-    width: 350px;
+    width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
