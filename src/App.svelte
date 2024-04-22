@@ -23,13 +23,14 @@
   </script>
   
   <main>
+	<h1>Find the weather of city around the World</h1>
 	<form on:submit={handleSubmit}>
 	  <input placeholder='Search weather by city' bind:value={currentCity}/>
 	  <button type="submit">Find Weather</button>
 	  <button on:click={clear}>Clear</button>
 	</form>
 	{#if weatherData} 
-	  <h1>The current weather in {weatherData.name}:</h1>
+	  <h2>The current weather in {weatherData.name}:</h2>
 	  <Weather {weatherData} />
 	{:else}
 	  <p>No weather data available</p>
@@ -49,7 +50,11 @@
 	  text-transform: uppercase;
 	  font-size: 1.5em;
 	  font-weight: 100;
-	  margin-bottom: 0%;
+	}
+	h2{
+	  color: #ff3e00;
+	  font-size: 1.5em;
+	  font-weight: 100;
 	}
   </style>
   

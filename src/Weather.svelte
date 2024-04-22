@@ -38,7 +38,7 @@
   }
 
   .card-header {
-    background-color: #f0f0f0;
+    background-color: #f19d81;
     padding: 10px;
     text-align: center;
   }

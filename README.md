@@ -1,112 +1,64 @@
-# This repo is no longer maintained. Consider using `npm init vite` and selecting the `svelte` option or — if you want a full-fledged app framework — use [SvelteKit](https://kit.svelte.dev), the official application framework for Svelte.
+
+# City Weather App 🌤️
+
+## SUMMARY
+
+This is a small city weather app to show the current weather of the city of your choise. The default city is set to London, which can be changed to your choise. 
+
+This project is built using Svelte for frontend, python FastAPI for the backend server, weather information is provided by Openweathermap.
 
 
-#to run the server ```python3 -m uvicorn server:app --reload```
-# to run the app ```npm run dev```
+## MAIN FEATURES
+- View current weather of city of choise (default: London)
+- Change the city with search bar
+
+# Set-up instructions
 
 
+### How to clone
 
+To clone this repository, within your terminal, navigate to an appropriate directory and use the commands
 
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
+```
+git clone https://github.com/arpstha/city_weather_app.git
+cd city_weather_app
 ```
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+### Dependencies
 
+To install all dependencies required run:
 
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
+```
 npm install
 ```
+### Openweathermap API_KEY
 
-...then start [Rollup](https://rollupjs.org):
+Before running the app make sure to obtain your own API_KEY for Openweathermap and save in the file "/src/config/api_key.py as follows:
+>API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
-```bash
+### Running app
+To run the app locally, first run the server with the code below into your terminal. 
+```
+python3 -m uvicorn server:app
+```
+Terminal should confirm of server startup comfirm:
+
+>INFO:     Started server process [98132]</br>
+>INFO:     Waiting for application startup.</br>
+>INFO:     Application startup complete.</br>
+>INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)</br>
+
+Now you can launch the app in your browser with the code below into your terminal. Make sure the server is running on http://127.0.0.1 and port 8000 for successful connection between Wether App and the server.
+```
 npm run dev
 ```
 
-Navigate to [localhost:8080](http://localhost:8080). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+Terminal should confirm of Weather app ready:
 
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+>Your application is ready~! 🚀
+>
+> - Local:      http://localhost:8080
+> - Network:    Add `--host` to expose
 
 
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-## Using TypeScript
-
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
-```
-
-Or remove the script via:
-
-```bash
-rm scripts/setupTypeScript.js
-```
-
-If you want to use `baseUrl` or `path` aliases within your `tsconfig`, you need to set up `@rollup/plugin-alias` to tell Rollup to resolve the aliases. For more info, see [this StackOverflow question](https://stackoverflow.com/questions/63427935/setup-tsconfig-path-in-svelte).
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+The terminal should confirm that app is ready to be open either you can click the link displayed in terminal or use the given port to open the app in browser.
