@@ -3,14 +3,14 @@
 
 ## SUMMARY
 
-This is a small city weather app to show the current weather of the city of your choise. The default city is set to London, which can be changed to your choise. 
+This is a small city weather app to show the current weather of the city of your choice. The default city is set to London, which can be changed to your choise. 
 
 This project is built using Svelte for frontend, python FastAPI for the backend server, weather information is provided by Openweathermap.
 
 
 ## MAIN FEATURES
 - View current weather of city of choise (default: London)
-- Change the city with search bar
+- Change the current city with search bar
 
 # Set-up instructions
 
