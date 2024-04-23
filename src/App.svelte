@@ -44,7 +44,8 @@
     }
 
 	function handleError(){
-		errorMessage = "Couldn't fetch weather the infomation. Make sure server is running and connected to internet."
+		errorMessage = "Couldn't fetch the weather infomation. Make sure server is running and connected to internet.";
+		weatherData = '';
 	}
 
     function clear(event){
@@ -52,7 +53,6 @@
         currentCity = '';
         isValidCity = true;
     }
-	console.log(errorMessage)
 </script>
 
 <main>
@@ -105,6 +105,7 @@
     p {
         color: red;
     }
+
 	.loading-spinner {
     display: flex;
     justify-content: center;
